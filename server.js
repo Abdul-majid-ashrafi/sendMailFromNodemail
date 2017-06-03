@@ -11,6 +11,8 @@ var app = express();
 // var firebase = require("firebase");
 // var admin = require("firebase-admin");
 var nodemailer = require('nodemailer');
+var smtpTransport = require('nodemailer-smtp-transport');
+
 // import * as admin from "firebase-admin";
 
 /* =====================================================
@@ -28,17 +30,17 @@ function mailSend(req, res) {
     handleSayHello(req, res);
     function handleSayHello(req, res) {
         // create reusable transporter object using the default SMTP transport
-        var transporter = nodemailer.createTransport({
+        var transporter = nodemailer.createTransport(smtpTransport({
             service: 'Gmail',
             auth: {
                 user: 'majidashrafkhan2@gmail.com', // Your email id
                 pass: 'majidkhan123' // Your password
             }
-        });
+        }));
         // var text = 'Hello your reservation confirmed. Your Slot Number is' + req.headers.slotno + ' \n\n' + req.headers.from;
         var text = 'User submited information:' + ' \n' + 'Name: ' + req.body.name + ' \n' + 'Email: ' + req.body.email + ' \n' + 'Contact: ' + req.body.contact + ' \n' + 'Country: ' + req.body.country + ' \n' + 'City: ' + req.body.city + ' \n' + 'Number: ' + req.body.number;
         var mailOptions = {
-            from: 'haseebrehmanpc@gmail.com', // sender address
+            from: 'majidashrafkhan2@gmail.com', // sender address
             to: 'dear_majid01@yahoo.com', // list of receivers
             subject: 'Your respective user email', // Subject line
             text: text // plaintext body
