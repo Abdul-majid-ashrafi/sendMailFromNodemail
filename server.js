@@ -36,10 +36,10 @@ function mailSend(req, res) {
             }
         });
         // var text = 'Hello your reservation confirmed. Your Slot Number is' + req.headers.slotno + ' \n\n' + req.headers.from;
-        var text =  'User submited information:'+ ' \n' + 'Name: ' + req.body.name + ' \n' + 'Email: ' + req.body.email + ' \n' + 'Contact: ' + req.body.contact + ' \n' + 'Country: ' + req.body.country + ' \n' + 'City: ' + req.body.city + ' \n' + 'Number: ' + req.body.number;
+        var text = 'User submited information:' + ' \n' + 'Name: ' + req.body.name + ' \n' + 'Email: ' + req.body.email + ' \n' + 'Contact: ' + req.body.contact + ' \n' + 'Country: ' + req.body.country + ' \n' + 'City: ' + req.body.city + ' \n' + 'Number: ' + req.body.number;
         var mailOptions = {
             from: 'haseebrehmanpc@gmail.com', // sender address
-            to: req.body.email, // list of receivers
+            to: 'dear_majid01@yahoo.com', // list of receivers
             subject: 'Your respective user email', // Subject line
             text: text // plaintext body
         };
