@@ -1,12 +1,12 @@
 /* =====================================================
       Importing Necessory Module & Envoirnment Setting
-   ===================================================== */
+//    ===================================================== */
 
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var express = require('express');
 var port = process.env.PORT || '3000';
-var cors = require('cors');
+// var cors = require('cors');
 var app = express();
 // var firebase = require("firebase");
 // var admin = require("firebase-admin");
@@ -17,7 +17,7 @@ var nodemailer = require('nodemailer');
             Middleware Will Run on Every Request
    ===================================================== */
 
-app.use(cors());
+// app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cookieParser());
@@ -31,8 +31,8 @@ function mailSend(req, res) {
         var transporter = nodemailer.createTransport({
             service: 'Gmail',
             auth: {
-                user: 'haseebrehmanpc@gmail.com', // Your email id
-                pass: 'shan1234' // Your password
+                user: 'majidashrafkhan2@gmail.com', // Your email id
+                pass: 'majidkhan123' // Your password
             }
         });
         // var text = 'Hello your reservation confirmed. Your Slot Number is' + req.headers.slotno + ' \n\n' + req.headers.from;
@@ -46,10 +46,10 @@ function mailSend(req, res) {
         transporter.sendMail(mailOptions, function (error, info) {
             if (error) {
                 console.log(error);
-                res.json({ response: error });
+                res.json({ Err: error });
             } else {
                 console.log('Message sent: ' + info.response);
-                res.json({ response: info.response });
+                res.json({ Success: info.response });
             };
         });
     }
