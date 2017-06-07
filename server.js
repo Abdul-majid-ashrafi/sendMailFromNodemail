@@ -29,7 +29,7 @@ function mailSend(req, res) {
             service: 'Gmail',
             auth: {
                 user: 'majidashrafkhan2@gmail.com', // Your email id
-                pass: 'majidkhanpakistan' // Your password
+                pass: '' // Your password
             }
         });
         // var text = 'Hello your reservation confirmed. Your Slot Number is' + req.headers.slotno + ' \n\n' + req.headers.from;
