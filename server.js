@@ -29,13 +29,13 @@ function mailSend(req, res) {
             service: 'Gmail',
             auth: {
                 user: 'majidashrafkhan2@gmail.com', // Your email id
-                pass: '' // Your password
+                pass: 'majidkhan123' // Your password
             }
         });
         // var text = 'Hello your reservation confirmed. Your Slot Number is' + req.headers.slotno + ' \n\n' + req.headers.from;
         var text = 'User submited information:' + ' \n' + 'Name: ' + req.body.name + ' \n' + 'Email: ' + req.body.email + ' \n' + 'Contact: ' + req.body.contact + ' \n' + 'Country: ' + req.body.country + ' \n' + 'City: ' + req.body.city + ' \n' + 'Number: ' + req.body.number + ' \n' + 'Message: ' + req.body.message;
         var mailOptions = {
-            from: 'majidashrafkhan2@gmail.com', // sender address
+            from: 'no-reply@Tola.com', // sender address
             to: 'dear_majid01@yahoo.com', // list of receivers
             subject: 'Your respective user email', // Subject line
             text: text // plaintext body
